@@ -6,6 +6,8 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, { textFilter, numberFilter } from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css'
+import Header from './Header';
+import Navigator from './Navigator';
 
 const dataUrl = "https://run.mocky.io/v3/7cb595ed-2882-4dc7-8179-d38d0b9c9d13";
 
@@ -53,12 +55,17 @@ export default function Table() {
         
       })
 return(
+    <>
+    <Header/>
       <BootstrapTable  
       keyField='id' 
       columns={columns} 
       data={companyData}
       pagination={pagination}
       filter= {filterFactory()}/>
+      <Navigator/>
+      </>
+
 )
     
 

@@ -4,8 +4,15 @@ import 'leaflet/dist/leaflet.css';
 import axios from 'axios';
 import { useEffect, useState} from 'react';
 
-import './Map.css'
+import styled from 'styled-components';
+import Header from './Header';
+import Navigator from './Navigator';
 
+const MapStyle = styled.div`
+display: flex;
+margin-top: 80px;
+z-index: 3;
+`
 const dataUrl = "https://run.mocky.io/v3/7cb595ed-2882-4dc7-8179-d38d0b9c9d13";
 
 
@@ -28,12 +35,16 @@ export default function Map() {
 
   
     const  IconImage = L.icon ({
-      iconUrl: require('../assets/icon.png'),
-      iconSize: 30,
+      iconUrl: require('../assets/correct.png'),
+      iconSize: 20,
     })
 
     return(
-
+        <>
+        <Header/>
+        
+        <MapStyle>
+        
 <MapContainer style={{height: '50vh', width: '100vw'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -54,6 +65,10 @@ export default function Map() {
   </Marker>
   ))}
   </MapContainer>
+  </MapStyle>
+  <Navigator/>
+  
+  </>
     )
 
 }
