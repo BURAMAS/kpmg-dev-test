@@ -1,5 +1,3 @@
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./Header";
 import Navigator from "./Navigator";
@@ -11,6 +9,7 @@ display: inline-block;
 margin-top: 110px;
 text-align: center;
 justify-content: center;
+font-size: large;
 
 `
 

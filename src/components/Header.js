@@ -25,13 +25,22 @@ h1{
     font-family: sans-serif;
     width: 100%;
 }
+
+@media only screen and (min-width: 768px) {
+
+    .image{
+        height: 100px;
+        width: 400px;
+}
+
+}
 `
 
 export default function Header(){
     return(
     <HeaderStyle>
-        <img src={logo} height={100}/>
-        <h1>Developer Test - Ebrima Saidy</h1>
+        <img src={logo} height={100} className='image'/>
+        <h1 className='writing'>Ebrima Saidy</h1>
     </HeaderStyle>
 
     )

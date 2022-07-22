@@ -9,6 +9,39 @@ import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css
 import Header from './Header';
 import Navigator from './Navigator';
 
+import styled from 'styled-components';
+
+const TableStyle = styled.div`
+//margin-top: 100px;
+font-size: large;
+
+
+@media only screen and (max-width: 768px) {
+
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    
+
+    .table{
+        //margin-top: 100px;
+        //margin-left: -8px;
+        font-size: 7.5px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        //justify-content: center;
+
+        
+    }
+}
+`
+
+const InfoStyle = styled.div`
+margin-top: 100px;
+`
+
 const dataUrl = "https://run.mocky.io/v3/7cb595ed-2882-4dc7-8179-d38d0b9c9d13";
 
 export default function Table() {
@@ -30,11 +63,13 @@ export default function Table() {
       const columns = [
         { dataField:'id', text: 'Id' },
         { dataField:'company', text: 'Company Name' },
-        { dataField:'sector', text: 'Company Sector', filter: textFilter() },
+        { dataField:'sector', text: 'Company Sector', filter: textFilter({
+            style: {display: 'flex', flexDirection: 'column', width: '60px' , paddingTop: '10px'}
+        }) },
         { dataField:'stockSymbol', text: 'Stock Symbol' },
         { dataField:'address', text: 'Company Address'},
         { dataField:'fees.amount', text: 'Amount', filter: numberFilter({
-          style: {display: 'inline-grid'},
+          style: {display: 'flex', flexDirection: 'column', width: '150px' , marginBottom: '10px', justifyContent: 'center', alignItems: 'center'},
     })},
         { dataField:'fees.currency', text: 'Currency' },
         { dataField:'location.latitude', text: 'Latitude' },
@@ -45,7 +80,7 @@ export default function Table() {
     
       const pagination = paginationFactory({
         page: 1,
-        sizePerPage: 5,
+        sizePerPage: 50,
         lastPageText: '>>',
         firstPageText: '<<',
         nextPageText: '>',
@@ -54,15 +89,26 @@ export default function Table() {
         alwaysShowAllBtns: true,
         
       })
+
 return(
     <>
     <Header/>
-      <BootstrapTable  
+    <InfoStyle>
+    <h1>Table Page</h1>
+    <p>This is the table page with all the information read
+        you can filter by the amount and Sector. ensure you choose
+        the comparator so that it is filtered correctly
+    </p>
+    </InfoStyle>
+    <TableStyle>
+      <BootstrapTable
+      parentClassName={'table'}
       keyField='id' 
       columns={columns} 
       data={companyData}
       pagination={pagination}
       filter= {filterFactory()}/>
+      </TableStyle>
       <Navigator/>
       </>
 

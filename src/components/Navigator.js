@@ -19,6 +19,11 @@ li{
         text-decoration: none;
         padding: 20px;
         letter-spacing: 2px;
+
+        &:hover{
+            background-color: orange;
+            transition: 1.5s ease;
+        }
         
     }
 }
