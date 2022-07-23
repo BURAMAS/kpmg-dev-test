@@ -19,6 +19,16 @@ margin-top:100px;
 font-size: large;
 `
 
+const BodyStyle = styled.div`
+animation-name: mapTransition;
+animation-duration: 4s;
+
+@keyframes mapTransition {
+  from {opacity: 0}
+  to {opacity: 1 }
+}
+`
+
 
 export default function Map() {
 
@@ -30,13 +40,19 @@ export default function Map() {
     return(
         <>
         <Header/>
+        <BodyStyle>
         <InfoStyle>
+
         <h1>Map Page</h1>
+       
         <p>This is the map page zoom out to see more of the plotted 
             companies. click on them to find out exactly what company 
             they are and information on them
         </p>
+        
         </InfoStyle>
+        
+
         
         <MapStyle>
         
@@ -62,6 +78,7 @@ export default function Map() {
   </MapContainer>
   </MapStyle>
   <Navigator/>
+  </BodyStyle>
   
   </>
     )

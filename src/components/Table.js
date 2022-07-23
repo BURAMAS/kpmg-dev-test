@@ -11,8 +11,6 @@ import styled from 'styled-components';
 import Data from './axios';
 
 const TableStyle = styled.div`
-//margin-top: 100px;
-//font-size: large;
 font-size: 8px;
 
 .head{
@@ -103,13 +101,29 @@ font-size: 8px;
     }
   }
 
-
-
 `
 
 const InfoStyle = styled.div`
 margin-top: 100px;
 `
+
+const TableAnimation = styled.div`
+  animation-name: slide;
+  animation-duration: 4s;
+
+@keyframes slide{
+  from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    };
+
+  }
+`;
 
 
 export default function Table() {
@@ -149,6 +163,7 @@ export default function Table() {
 return(
     <>
     <Header/>
+    <TableAnimation>
     <InfoStyle>
     <h1>Table Page</h1>
     <p>This is the table page with all the information read
@@ -168,6 +183,7 @@ return(
       filter= {filterFactory()}/>
       </TableStyle>
       <Navigator/>
+      </TableAnimation>
       </>
 
 )

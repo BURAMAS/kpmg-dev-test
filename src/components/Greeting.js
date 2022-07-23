@@ -10,13 +10,32 @@ margin-top: 110px;
 text-align: center;
 justify-content: center;
 font-size: large;
+`
 
+const StyledAnimation = styled.div`
+animation-name: slide;
+animation-duration: 4s;
+
+@keyframes slide {
+
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    };
+    
+}
 `
 
 export default function Greeting(){
     return(
         <>
         <Header/>
+        <StyledAnimation>
         <StyledGreeting>
         <h1>Hello!</h1>
        
@@ -26,6 +45,7 @@ export default function Greeting(){
         </p>
         </StyledGreeting>
         <Navigator/>
+        </StyledAnimation>
         </>
 
     )
