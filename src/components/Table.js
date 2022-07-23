@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
@@ -10,68 +8,126 @@ import Header from './Header';
 import Navigator from './Navigator';
 
 import styled from 'styled-components';
+import Data from './axios';
 
 const TableStyle = styled.div`
 //margin-top: 100px;
-font-size: large;
+//font-size: large;
+font-size: 8px;
+
+.head{
+
+  input{
+    margin-top: 20px;
+        font-size: x-small;
+        min-width: 70px ;
+        height: 45px ;
+  }
+
+  th{
+    
+        width: 100%;
+        color: white;
+        background-color: #4287f5;
+        text-align: center;
+
+      }
+      
+    }
+    
+    .body{
+    background-color: aliceblue;
+    width: 100%;
+
+    td{
+        
+
+        text-align: left;
+      }
+
+    tr{
+      
+      
+      background-color: aliceblue;
+    }
+
+    }
 
 
 @media only screen and (max-width: 768px) {
+
 
     display: flex;
     flex-direction: column;
     font-size: large;
     
+    .head{
+
+      display: flex;
+      
+      input{
+
+        font-size: x-small;
+        min-width: 60px ;
+        height: 25px ;
+        
+      }
+
+      th{
+        width: 100%;
+        color: white;
+        background-color: #4287f5;
+
+      }
+
+    }
+    
+    .body{
+    background-color: aliceblue;
+    width: 100%;
+
+    td{
+        text-align: left;
+      }
+
+    tr{
+      background-color: aliceblue;
+    }
+
+    }
 
     .table{
-        //margin-top: 100px;
-        //margin-left: -8px;
-        font-size: 7.5px;
-        width: 100vw;
+        font-size: 8.5px;
         display: flex;
         flex-direction: column;
-        //align-items: center;
-        //justify-content: center;
-
-        
     }
-}
+  }
+
+
+
 `
 
 const InfoStyle = styled.div`
 margin-top: 100px;
 `
 
-const dataUrl = "https://run.mocky.io/v3/7cb595ed-2882-4dc7-8179-d38d0b9c9d13";
 
 export default function Table() {
 
-    const  [companyData, setCompanyData] = useState([]);
 
-    useEffect(() => {
-        axios
-        .get(dataUrl)
-        .then(res => {
-          console.log(res);
-          setCompanyData(res.data)
-        })
-        .catch(err => {
-          console.log(err)
-        });
-      }, [])
 
-      const columns = [
-        { dataField:'id', text: 'Id' },
-        { dataField:'company', text: 'Company Name' },
-        { dataField:'sector', text: 'Company Sector', filter: textFilter({
-            style: {display: 'flex', flexDirection: 'column', width: '60px' , paddingTop: '10px'}
+      const columns = [ 
+        { dataField:'id', text: 'Id' , },
+        { dataField:'company', text: 'Company' },
+        { dataField:'sector', text: 'Sector', filter: textFilter({
+            style: {display: 'flex', flexDirection: 'column',  }
         }) },
-        { dataField:'stockSymbol', text: 'Stock Symbol' },
-        { dataField:'address', text: 'Company Address'},
-        { dataField:'fees.amount', text: 'Amount', filter: numberFilter({
-          style: {display: 'flex', flexDirection: 'column', width: '150px' , marginBottom: '10px', justifyContent: 'center', alignItems: 'center'},
+        { dataField:'stockSymbol', text: 'Stock Symbol', },
+        { dataField:'address', text: 'Address'},
+        { dataField:'fees.amount', text: 'Amount',filter: numberFilter({
+          style: {display: 'flex', flexDirection: 'column', },
     })},
-        { dataField:'fees.currency', text: 'Currency' },
+        { dataField:'fees.currency', text: 'Currency' , style:{ paddingLeft: '30px'}},
         { dataField:'location.latitude', text: 'Latitude' },
         { dataField:'location.longitude', text: 'Longitude' },
       ]
@@ -104,8 +160,10 @@ return(
       <BootstrapTable
       parentClassName={'table'}
       keyField='id' 
-      columns={columns} 
-      data={companyData}
+      headerClasses='head'
+      columns={columns}
+      bodyClasses='body'
+      data={Data()}
       pagination={pagination}
       filter= {filterFactory()}/>
       </TableStyle>

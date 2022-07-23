@@ -39,7 +39,7 @@ h1{
 export default function Header(){
     return(
     <HeaderStyle>
-        <img src={logo} height={100} className='image'/>
+        <img alt='kpmg-logo' src={logo} height={100} className='image'/>
         <h1 className='writing'>Ebrima Saidy</h1>
     </HeaderStyle>
 

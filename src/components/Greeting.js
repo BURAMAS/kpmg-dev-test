@@ -18,7 +18,7 @@ export default function Greeting(){
         <>
         <Header/>
         <StyledGreeting>
-        <h1>Hello</h1>
+        <h1>Hello!</h1>
        
         <p>This is the devloper test, to view the table filter and seacrh
             click the table button. To access the map with the plotted companies and

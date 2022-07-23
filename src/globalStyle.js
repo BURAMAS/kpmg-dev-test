@@ -12,6 +12,13 @@ const GlobalStyle = createGlobalStyle`
 }
 h1{
     font-family: 'Raleway', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+p{
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 a{
     text-decoration: none;

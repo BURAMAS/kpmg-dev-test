@@ -21,8 +21,8 @@ li{
         letter-spacing: 2px;
 
         &:hover{
-            background-color: orange;
-            transition: 1.5s ease;
+            color: orange;
+            transition: 0.5s ease;
         }
         
     }
