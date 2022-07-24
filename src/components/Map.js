@@ -42,7 +42,7 @@ export default function Map() {
         <Header/>
         <BodyStyle>
         <Information title={'Map Page'} 
-        description={'This is the map page zoom out to see more of the plotted companies. click on them to find out exactly what company they are and information on them'}
+        description={'This is the map page zoom out to see more of the plotted companies. click on the markers to find out more.'}
         />
         
         <MapStyle>

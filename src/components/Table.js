@@ -124,8 +124,6 @@ animation-duration: 4s;
 
 export default function Table() {
 
-
-
       const columns = [ 
         { dataField:'id', text: 'Id' , },
         { dataField:'company', text: 'Company' },
@@ -160,7 +158,7 @@ return(
     <Information 
     title={'Table Page'} 
     description = {
-      'This is the table page with all the information read you can filter by the amount and Sector. ensure you choose the comparator so that it is filtered correctly'
+      'This is the table page with all the information read. You can filter by the Amount and Sector. Ensure you choose the comparator so that it is filtered correctly.'
     }
     />
     <TableAnimation>

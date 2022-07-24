@@ -5,19 +5,16 @@ const StyledNavigation  = styled.div`
 
 display: flex;
 margin-top: 40px;
-text-align: center;
-justify-content: center;
-
+margin-left: -25px;
 
 li{
 
     display: inline-block;
-    align-items: center;
     
     a{
 
         text-decoration: none;
-        padding: 20px;
+        padding-right: 20px;
         letter-spacing: 2px;
 
         &:hover{
@@ -54,6 +51,6 @@ export default function Navigator() {
             </li>
         </ul>
     </StyledNavigation>
-    
+
     )
 }

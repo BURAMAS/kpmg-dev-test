@@ -30,7 +30,7 @@ export default function Greeting(){
         <Information 
         title={'Hello!'} 
         description={
-        'This is the devloper test, to view the table filter and seacrh click the table button. To access the map with the plotted companies and information click map. Home will return you to the greeting page'
+        'This is the developer test, to view the table filter and searchh click the table button. To access the map with the plotted companies and information click map. Home will return you to the greeting page.'
         }/>
         <Navigator/>
         </StyledAnimation>
