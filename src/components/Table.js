@@ -52,7 +52,7 @@ font-size: 8px;
     }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
 
     display: flex;
@@ -108,21 +108,19 @@ margin-top: 100px;
 `
 
 const TableAnimation = styled.div`
-  animation-name: slide;
-  animation-duration: 4s;
 
-@keyframes slide{
-  from {
-        margin-left: 100%;
-        width: 300%;
-    }
+animation-name: pulse;
+animation-duration: 4s;
 
-    to {
-        margin-left: 0%;
-        width: 100%;
-    };
+@keyframes pulse {
+  0% {opacity: 0}
+  25% {opacity: 1 }
+  50% {opacity: 0}
+  75% {opacity: 0.5}
+  100%{opacity: 1}
+}
 
-  }
+  
 `;
 
 
@@ -163,7 +161,7 @@ export default function Table() {
 return(
     <>
     <Header/>
-    <TableAnimation>
+    
     <InfoStyle>
     <h1>Table Page</h1>
     <p>This is the table page with all the information read
@@ -171,6 +169,7 @@ return(
         the comparator so that it is filtered correctly
     </p>
     </InfoStyle>
+    <TableAnimation>
     <TableStyle>
       <BootstrapTable
       parentClassName={'table'}
