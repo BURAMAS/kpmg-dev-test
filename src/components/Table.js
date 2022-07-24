@@ -7,7 +7,8 @@ import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css
 import Header from './Header';
 import Navigator from './Navigator';
 import styled from 'styled-components';
-import Data from './axios';
+import Data from './Data';
+import Information from './Information';
 
 const TableStyle = styled.div`
 
@@ -104,12 +105,6 @@ font-size: 8px;
 
 `
 
-const InfoStyle = styled.div`
-
-margin-top: 100px;
-
-`
-
 const TableAnimation = styled.div`
 
 animation-name: pulse;
@@ -162,17 +157,16 @@ export default function Table() {
 return(
     <>
     <Header/>
-    
-    <InfoStyle>
-      <h1>Table Page</h1>
-      <p>This is the table page with all the information read
-        you can filter by the amount and Sector. ensure you choose
-        the comparator so that it is filtered correctly
-      </p>
-    </InfoStyle>
+    <Information 
+    title={'Table Page'} 
+    description = {
+      'This is the table page with all the information read you can filter by the amount and Sector. ensure you choose the comparator so that it is filtered correctly'
+    }
+    />
     <TableAnimation>
       <TableStyle>
         <BootstrapTable
+        data-testid='table-test'
         parentClassName={'table'}
         keyField='id' 
         headerClasses='head'
