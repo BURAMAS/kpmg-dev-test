@@ -6,8 +6,6 @@ const GlobalStyle = createGlobalStyle`
     padding : 0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    //overflow-x: hidden;
-    
  
 }
 h1{

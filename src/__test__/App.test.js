@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import { renderer, cleanup, screen} from '@testing-library/react';
+//import ReactDOM, { render, unmountComponentAtNode } from 'react-dom';
+import { render, cleanup, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-
-import Information from '../components/Information';
 import Table from '../components/Table';
 import Map from '../components/Map';
 import Navigator from '../components/Navigator';
@@ -12,11 +10,73 @@ import Data from '../components/Data';
 import Greeting from '../components/Greeting';
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
+import {unmountComponentAtNode } from "react-dom";
+import { BrowserRouter as Router} from 'react-router-dom';
+import Information from "../components/Information";
 
+let container = null;
 
-afterEach(cleanup);
+beforeEach(() => {
+    // setup a DOM element as a render target
+    container = document.createElement('div');
+    //root = createRoot(container);
+    document.body.appendChild(container);
+})
 
-test('Renders Table', () =>{
+afterEach(() => {
+    // cleanupon exiting
+    unmountComponentAtNode(container)
+    container.remove();
+    container = null;
+});
+
+describe('Render Tests', () => {
+
+    test('Map Renders', async() => {
+        render(
+        <Router>
+            <Map/>
+        </Router>, container)
+    });
+
+    test('Table Renders', async() => {
+        render(
+        <Router>
+            <Table/>
+        </Router>, container)
+    });
+
+    test('Header Renders', async() => {
+        render(
+        <Router>
+            <Header/>
+        </Router>, container)
+    });
+
+    test('Information Renders', async() => {
+        render(
+        <Router>
+            <Information/>
+        </Router>, container)
+    });
+
+    test('Greeting Renders', async() => {
+        render(
+        <Router>
+            <Greeting/>
+        </Router>, container)
+    });
+
+    test('Navigator Renders', async() => {
+        render(
+        <Router>
+            <Map/>
+        </Router>, container)
+    });
+
+})
+
+/*test('Renders Table', () =>{
     const div = document.createElement('div');
     const root = createRoot(div)
     root.render(<Table/>)
@@ -48,6 +108,10 @@ test('Renders Navigator', () =>{
 test('Renders Greeting', () =>{
     const div = document.createElement('div');
     const root = createRoot(div)
-    root.render(<Greeting/>)
+    act(() =>{
+    ReactDOM.createRoot(div).render(<Greeting/>)
+    })
+    expect()
 }
 )
+*/
