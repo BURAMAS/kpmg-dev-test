@@ -1,13 +1,7 @@
-
 import Map from './components/Map';
 import Table from './components/Table';
-
-
-
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Greeting from './components/Greeting';
-
-
 
 function App() {
 
@@ -15,7 +9,6 @@ function App() {
 
     <>
     <Router>
-   
     <Routes>
       <Route path='/' element={<Greeting/>}/>
       <Route path='/map' element={<Map/>}/>

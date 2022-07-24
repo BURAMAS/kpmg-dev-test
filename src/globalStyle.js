@@ -20,9 +20,11 @@ p{
     font-style: italic;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 a{
     text-decoration: none;
 }
+
 li{
     list-style: none;
 }

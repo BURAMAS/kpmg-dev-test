@@ -6,17 +6,17 @@ import filterFactory, { textFilter, numberFilter } from 'react-bootstrap-table2-
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css'
 import Header from './Header';
 import Navigator from './Navigator';
-
 import styled from 'styled-components';
 import Data from './axios';
 
 const TableStyle = styled.div`
+
 font-size: 8px;
 
 .head{
 
   input{
-    margin-top: 20px;
+        margin-top: 20px;
         font-size: x-small;
         min-width: 70px ;
         height: 45px ;
@@ -34,19 +34,16 @@ font-size: 8px;
     }
     
     .body{
-    background-color: aliceblue;
-    width: 100%;
+
+      background-color: aliceblue;
+      width: 100%;
 
     td{
-        
-
         text-align: left;
       }
 
     tr{
-      
-      
-      background-color: aliceblue;
+        background-color: aliceblue;
     }
 
     }
@@ -54,14 +51,13 @@ font-size: 8px;
 
 @media only screen and (max-width: 767px) {
 
-
     display: flex;
     flex-direction: column;
     font-size: large;
     
     .head{
 
-      display: flex;
+        display: flex;
       
       input{
 
@@ -75,36 +71,43 @@ font-size: 8px;
         width: 100%;
         color: white;
         background-color: #4287f5;
-
       }
 
     }
     
     .body{
-    background-color: aliceblue;
-    width: 100%;
+      background-color: aliceblue;
+      width: 100%;
 
     td{
-        text-align: left;
+
+      text-align: left;
+
       }
 
     tr{
+
       background-color: aliceblue;
+
     }
 
     }
 
     .table{
+
         font-size: 8.5px;
         display: flex;
         flex-direction: column;
+
     }
   }
 
 `
 
 const InfoStyle = styled.div`
+
 margin-top: 100px;
+
 `
 
 const TableAnimation = styled.div`
@@ -144,8 +147,6 @@ export default function Table() {
         { dataField:'location.longitude', text: 'Longitude' },
       ]
     
-    
-    
       const pagination = paginationFactory({
         page: 1,
         sizePerPage: 50,
@@ -163,26 +164,26 @@ return(
     <Header/>
     
     <InfoStyle>
-    <h1>Table Page</h1>
-    <p>This is the table page with all the information read
+      <h1>Table Page</h1>
+      <p>This is the table page with all the information read
         you can filter by the amount and Sector. ensure you choose
         the comparator so that it is filtered correctly
-    </p>
+      </p>
     </InfoStyle>
     <TableAnimation>
-    <TableStyle>
-      <BootstrapTable
-      parentClassName={'table'}
-      keyField='id' 
-      headerClasses='head'
-      columns={columns}
-      bodyClasses='body'
-      data={Data()}
-      pagination={pagination}
-      filter= {filterFactory()}/>
+      <TableStyle>
+        <BootstrapTable
+        parentClassName={'table'}
+        keyField='id' 
+        headerClasses='head'
+        columns={columns}
+        bodyClasses='body'
+        data={Data()}
+        pagination={pagination}
+        filter= {filterFactory()}/>
       </TableStyle>
       <Navigator/>
-      </TableAnimation>
+    </TableAnimation>
       </>
 
 )
